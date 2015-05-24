@@ -1,2 +1,2 @@
-module.exports.Pipeline = require('./dist/pipeline.js');
-module.exports.createPipeline = function(transforms) { return new Pipeline(transforms) };
+module.exports = require('./dist/pipeline.js');
+module.exports.createPipeline = function(transforms) { return new module.exports(transforms) };

@@ -4,7 +4,7 @@ var noop = () => {};
 
 // TODO: Central error handling
 
-class Pipeline extends Duplex {
+class StreamPipeline extends Duplex {
 
     constructor(transforms) {
         super();
@@ -74,4 +74,4 @@ class Pipeline extends Duplex {
 
 }
 
-module.exports = Pipeline;
+module.exports = StreamPipeline;
