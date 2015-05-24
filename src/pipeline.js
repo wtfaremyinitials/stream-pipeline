@@ -36,12 +36,14 @@ class StreamPipeline extends Duplex {
         _unpipe();
         this.transforms.unshift(transform);
         _repipe();
+        return this;
     }
 
     addLast(transform) {
         _unpipe();
         this.transforms.push(transform);
         _repipe();
+        return this;
     }
 
     addBefore(name, transform) {
@@ -49,6 +51,7 @@ class StreamPipeline extends Duplex {
         var indx = this.getIndex(name);
         this.transforms.splice(indx + 0, 0, transform);
         _repipe();
+        return this;
     }
 
     addAfter(name, transform) {
@@ -56,6 +59,7 @@ class StreamPipeline extends Duplex {
         var indx = this.getIndex(name);
         this.transforms.splice(indx + 1, 0, transform);
         _repipe();
+        return this;
     }
 
     remove(name) {
@@ -63,18 +67,21 @@ class StreamPipeline extends Duplex {
         var indx = this.getIndex(name);
         this.transforms.splice(indx, 1);
         _repipe();
+        return this;
     }
 
     removeFirst() {
         _unpipe();
         this.transforms.shift();
         _repipe();
+        return this;
     }
 
     removeLast() {
         _unpipe();
         this.transforms.pop();
         _repipe();
+        return this;
     }
 
     getIndex(name) {
