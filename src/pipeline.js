@@ -1,4 +1,4 @@
-var { Duplex, PassThrough } = require('stream');
+var { Duplex, PassThrough } = require('readable-stream');
 
 // TODO: Central error handling
 
