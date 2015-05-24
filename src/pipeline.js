@@ -58,6 +58,25 @@ class StreamPipeline extends Duplex {
         _repipe();
     }
 
+    remove(name) {
+        _unpipe();
+        var indx = this.getIndex(name);
+        this.transforms.splice(indx, 1);
+        _repipe();
+    }
+
+    removeFirst() {
+        _unpipe();
+        this.transforms.shift();
+        _repipe();
+    }
+
+    removeLast() {
+        _unpipe();
+        this.transforms.pop();
+        _repipe();
+    }
+
     getIndex(name) {
         return this.transforms.reduce((p, c, i) => { c.name == name ? i : -1 }, -1);
     }
