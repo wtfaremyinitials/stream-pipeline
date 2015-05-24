@@ -33,54 +33,54 @@ class StreamPipeline extends Duplex {
     }
 
     addFirst(transform) {
-        _unpipe();
+        this._unpipe();
         this.transforms.unshift(transform);
-        _repipe();
+        this._repipe();
         return this;
     }
 
     addLast(transform) {
-        _unpipe();
+        this._unpipe();
         this.transforms.push(transform);
-        _repipe();
+        this._repipe();
         return this;
     }
 
     addBefore(name, transform) {
-        _unpipe();
+        this._unpipe();
         var indx = this.getIndex(name);
         this.transforms.splice(indx + 0, 0, transform);
-        _repipe();
+        this._repipe();
         return this;
     }
 
     addAfter(name, transform) {
-        _unpipe();
+        this._unpipe();
         var indx = this.getIndex(name);
         this.transforms.splice(indx + 1, 0, transform);
-        _repipe();
+        this._repipe();
         return this;
     }
 
     remove(name) {
-        _unpipe();
+        this._unpipe();
         var indx = this.getIndex(name);
         this.transforms.splice(indx, 1);
-        _repipe();
+        this._repipe();
         return this;
     }
 
     removeFirst() {
-        _unpipe();
+        this._unpipe();
         this.transforms.shift();
-        _repipe();
+        this._repipe();
         return this;
     }
 
     removeLast() {
-        _unpipe();
+        this._unpipe();
         this.transforms.pop();
-        _repipe();
+        this._repipe();
         return this;
     }
 
