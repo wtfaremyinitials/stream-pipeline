@@ -1,7 +1,5 @@
 var { Duplex, PassThrough } = require('stream');
 
-var noop = () => {};
-
 // TODO: Central error handling
 
 class StreamPipeline extends Duplex {
